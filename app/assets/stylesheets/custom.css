@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,500;1,600&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+  }
+.nav_head{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.nav_items{
+margin: 1rem;
+}
+.nav_btn{
+margin: 0.5rem;
+}
+.index_sub{
+    margin-left: 2rem;
+    color : white;
+    font-weight: bold;
+}
+.label_form{
+    text-align: center;
+    color: white;
+    font-size:1.2rem;
+    font-weight: bold;
+    margin: 2rem 0rem 0rem 3rem;
+}
+.label_input{
+    width: 80%;
+    height: 3.5rem;
+    border-radius: 10px;
+    margin-left: 3rem;
+    color: black;
+}
+.label_btn{
+    height: 2rem;
+    margin-left: 3rem;
+    color: white;
+}
+.new_head{
+    color: white;
+    text-align: center;
+    margin: 1rem;
+}
+.nav_btn a{
+font-weight: bold;
+font-size: 1rem;
+}
+.nav_logo{
+    width: 20%;
+}
+.search_nav{
+    width: 40%;
+    margin-left: 8%;
+}
+.index_head{
+    margin-top: 2rem;
+    color: white;
+    text-align: center;
+}
+.index_card{
+    border: none;
+    border-radius: 10px;
+    
+}
+.card_title{
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+.show_card{
+    margin: 5rem;
+}
+.show_text{
+    color: white;
+}
+.show_btn{
+    width: 98%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin: 0.4rem;
+}   
+.audio_show{
+    border-radius: 0px;
+}
+.row_show{
+    color: white;
+    text-align: center;
+}
+.btn_form{
+    background-color: orange;
+}
+
+
+
+@media screen and (max-width: 790px) {
+
+    .search_nav{
+        width: 100%;
+        margin-left: 0%;
+    }
+   
+}

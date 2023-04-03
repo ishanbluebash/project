@@ -1,10 +1,58 @@
-<h1><%= @album.title %></h1>
-<p><%= @album.body %></p>
+<div class="card mb-3 bg-dark show_card container-fluid" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col">
+     <%if @album.image.attached?%>
+       <%= image_tag url_for(@album.image) , style: "height:100%; width:100%;" %>
+       <%end%>
+    </div>
+    <div class="col">
+      <div class="card-body show_text">
+        <h1 class="card-title"><%= @album.title %></h1>
+        <p class="card-text"><%= @album.body %></p>
+        <p class="card-text"><%= @album.published%></p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <button type="button" class="btn btn-danger btn-sm show_btn">Play Now</button>
+        <button type="button" class="btn btn-primary btn-sm show_btn">Follow Artist</button>
 
-<ul>
-  <li><%= link_to "Edit", edit_album_path(@album) %></li>
-  <li><%= link_to "Destroy", album_path(@album), data: {
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<table class="table container-fluid">
+  <thead>
+    <tr class="row_show">
+      <th scope="col">Artist</th>
+      <th scope="col">Play Music</th>
+      <th scope="col">Published</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @album.audios.each do |audio| %>
+    <tr class="row_show">
+      <td><%= @album.title %></td>
+      <td>
+  <audio class="audio_show" controls>
+    <source src="<%= url_for(audio) %>" type="<%= audio.content_type %>">
+  </audio>               
+</td>
+<td><%= @album.published ? 'Yes' : 'No' %></td>
+<td><button type="button" class="btn btn-danger  show_btn"><%= link_to 'Remove', purge_audio_album_path(@album, audio_id: audio.id), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
+                  } ,class:"text-light text-decoration-none"%></button>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<button type="button" class="btn btn-danger show_btn container-fluid"><%= link_to "Destroy Entire Album " , album_path(@album), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  },class:"text-light text-decoration-none" %></button>
+<button type="button" class="btn btn-success show_btn"><%= link_to "Edit Entire Album", edit_album_path(@album),class:"text-light text-decoration-none" %></button></td>
+
+

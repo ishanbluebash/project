@@ -1,0 +1,26 @@
+<h2 class = "index_head">Forgot your password?</h2>
+<div class="row row-cols-1 row-cols-md-2 g-4 container-fluid">
+  <div class="col">
+    <div class="card" style="border:none;background-color:black;margin-left:10%;margin-top:2%;">
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email ,class:"label_form"%><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"label_input"%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Send me reset password instructions" ,class:"btn btn-danger label_input",style:"margin:2rem 0rem 0rem 3rem;width:80%"%>
+  </div>
+  <%= render "devise/shared/links" %>
+<% end %>
+</div>
+</div>
+
+<div class="col">
+    <div class="card" style="border:none;margin-top:2%;width:65%">
+    <%=image_tag "logos/forgot.avif", alt: 'My Image', style:"height:40rem;width:100%"%>
+    </div>
+  </div>
+</div>

@@ -1,21 +1,54 @@
-<%= form_with model: album do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% album.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
+<div class="row row-cols-1 row-cols-md-2 g-4 container-fluid">
+  <div class="col">
+    <div class="card" style="border:none;background-color:black;margin-left:10%;margin-top:2%;">
+      <%=image_tag "logos/new.jpeg", alt: 'My Image', style:"height:41rem;width:85%;"%>
+    </div>
+  </div>
+  <div class="col">
+  <div class="card" style="border:none;background-color:black;">
+      <%= form_with model: @album do |form|%>
+        <div>
+          <%= form.label :Artist ,class:"label_form"%><br>
+          <%= form.text_field :title ,class:"label_input"%>
+          <% album.errors.full_messages_for(:title).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div>
+          <%= form.label :Description ,class:"label_form"%><br>
+          <%= form.text_area :body ,class:"label_input"%><br>
+          <% album.errors.full_messages_for(:body).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div>
+          <%= form.label :Song ,class:"label_form"%><br>
+          <%= form.text_field :song ,class:"label_input"%>
+        </div>
+
+        <div>
+          <%= form.label :Cover_Image ,class:"label_form"%><br>
+          <%= form.file_field :image ,class:"label_btn"%>
+        </div><br>
+
+        <div>
+          <%= form.label :Audio_file ,class:"label_form"%><br>
+          <%= form.file_field :audios, multiple: true, direct_upload: true ,class:"label_btn"%>
+        </div><br>
+
+        <div>
+          <%= form.label :published%>
+          <%= form.check_box :published %>
+        </div><br>
+
+        <div>
+          <%= form.submit "Save Changes", class:"btn btn-danger label_btn", style:"width:80%;height:3rem;"%>
+        </div>
+   <% end %>
+     </div>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
-    <% album.errors.full_messages_for(:body).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>

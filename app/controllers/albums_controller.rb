@@ -1,6 +1,8 @@
 class AlbumsController < ApplicationController
+  before_action :authenticate_user! , except: [:index]
   def index
-    @albums = Album.all
+    @q = Album.ransack(params[:q])
+    @albums = @q.result(distinct: true).where(published: true)
   end
   def show
     @album = Album.find(params[:id])
@@ -40,8 +42,19 @@ class AlbumsController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
+  def purge_audio
+    @album = Album.find(params[:id])
+    @audio = @album.audios.find(params[:audio_id])
+    @audio.purge
+    redirect_back fallback_location: root_path
+  end
+
+  def my_albums
+    @albums = Album.where(published: false)
+  end
+
   private
     def album_params
-      params.require(:album).permit(:title, :body)
+      params.require(:album).permit(:title, :body,  :song, :image, :published, audios: [])
     end
 end
