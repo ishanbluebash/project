@@ -50,7 +50,8 @@ class AlbumsController < ApplicationController
   end
 
   def my_albums
-    @albums = Album.where(published: false)
+    @q = Album.ransack(params[:q])
+    @albums = @q.result(distinct: true).where(published: false)
   end
 
   private
