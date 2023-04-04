@@ -26,18 +26,17 @@ margin: 0.5rem;
     color: white;
     font-size:1.2rem;
     font-weight: bold;
-    margin: 2rem 0rem 0rem 3rem;
+    margin: 2rem 0rem 0rem 0rem;
 }
 .label_input{
     width: 80%;
     height: 3.5rem;
     border-radius: 10px;
-    margin-left: 3rem;
+    margin-left: 0rem;
     color: black;
 }
 .label_btn{
     height: 2rem;
-    margin-left: 3rem;
     color: white;
 }
 .new_head{
@@ -71,17 +70,14 @@ font-size: 1rem;
     text-decoration: none;
     color: white;
 }
-.show_card{
-    margin: 5rem;
-}
 .show_text{
     color: white;
 }
 .show_btn{
-    width: 98%;
+    width: 30%;
     padding: 0.5rem;
     border-radius: 5px;
-    margin: 0.4rem;
+    margin: 1rem;
 }   
 .audio_show{
     border-radius: 0px;

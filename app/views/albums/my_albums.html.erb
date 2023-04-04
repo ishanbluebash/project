@@ -1,6 +1,6 @@
 <%= search_form_for @q, remote: true do |f| %>
   <%= f.label :title_cont, 'Search By Album Name', class:"label_form" %>
-  <%= f.search_field :title_cont, class:"label_input",style:"height: 2rem;margin-left: 0rem;"%>
+  <%= f.search_field :title_cont,style:"height: 2rem;margin-left: 0rem;"%>
   <%= f.submit :Submit, style:"color:black;" %>
 <% end %>
 <h1 class = "index_head">Your Own Albums</h1>

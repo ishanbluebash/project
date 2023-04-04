@@ -3,6 +3,7 @@ class AlbumsController < ApplicationController
   def index
     @q = Album.ransack(params[:q])
     @albums = @q.result(distinct: true).where(published: true)
+    params[:tag] ? @albums = Album.tagged_with(params[:tag]) : @Albums = Album.all
   end
   def show
     @album = Album.find(params[:id])
@@ -13,7 +14,7 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.new(album_params)
-
+    
     if @album.save
       redirect_to @album
     else
@@ -56,6 +57,6 @@ class AlbumsController < ApplicationController
 
   private
     def album_params
-      params.require(:album).permit(:title, :body,  :song, :image, :published, audios: [])
+      params.require(:album).permit(:title, :body, :image, :published, :tag_list, :tag, :tag_ids,{ tag_ids: [] }, audios: [])
     end
 end

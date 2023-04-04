@@ -73,3 +73,9 @@ end
 
 gem "devise"
 gem 'ransack', github: 'activerecord-hackery/ransack', :branch => 'main'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3' 
+  # add the line below
+  gem 'rails-assets-chosen'
+end
