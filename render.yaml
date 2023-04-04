@@ -17,7 +17,6 @@ services:
         sync: false
   - type: redis
     name: redis
-    ipAllowlist: []
     plan: free
     maxmemoryPolicy: noeviction
          
