@@ -20,36 +20,31 @@
 </div>
 
 
-
 <div class="card bg-dark text-white container-fluid">
   <table class="table container-fluid">
   <thead>
     <tr class="row_show">
       <th scope="col">Artist</th>
-      <th scope="col">Play Music</th>
-      <th scope="col">Published</th>
-      <th scope="col">Options</th>
     </tr>
   </thead>
   <tbody>
   <% @album.audios.each do |audio| %>
     <tr class="row_show">
-      <td><%= @album.title %></td>
-      <td>
-  <audio class="audio_show" controls>
+      <td><%= @album.title %><br>
+      <audio class="audio_show" controls>
     <source src="<%= url_for(audio)%>" type="<%= audio.content_type %>">
-  </audio>               
-</td>
-<td><%= @album.published ? 'Yes' : 'No' %></td>
-<td><button type="button" class="btn btn-danger  show_btn"><%= link_to 'Remove', purge_audio_album_path(@album, audio_id: audio.id), data: {
+  </audio> <br>
+  <%= @album.published ? 'Published : Yes' : 'Published : No' %><br>
+  <button type="button" class="btn btn-danger  show_btn"><%= link_to 'Remove', purge_audio_album_path(@album, audio_id: audio.id), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } ,class:"text-light text-decoration-none"%></button>
+  </td>
     </tr>
     <% end %>
   </tbody>
 </table>
-<div style="margin-left:30%;">
+<div style="margin-left:30%">
 <button type="button" class="btn btn-danger show_btn container-fluid"><%= link_to "Destroy Entire Album " , album_path(@album), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
