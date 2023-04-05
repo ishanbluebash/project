@@ -5,9 +5,6 @@ default: &default
   username: postgres
   password: 2001
   host: localhost
-  ipAllowlist:
-    - 127.0.0.1
-    - 192.168.1.1/24
 
 development:
   <<: *default
@@ -18,10 +15,12 @@ test:
   database: project_test
 
 production:
-  <<: *default
-  database: project_production
-  username: project
-  password: <%= ENV['PROJECT_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: <%= ENV['DATABASE_URL'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
