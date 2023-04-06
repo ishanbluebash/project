@@ -45,7 +45,7 @@
   </tbody>
 </table>
 <div style="margin-left:30%">
-<button type="button" class="btn btn-danger show_btn container-fluid"><%= link_to "Destroy Entire Album " , album_path(@album), data: {
+<button type="button" class="btn btn-danger show_btn"><%= link_to "Destroy Entire Album " , album_path(@album), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   },class:"text-light text-decoration-none" %></button>
