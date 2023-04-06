@@ -35,6 +35,9 @@ margin: 0.5rem;
     margin-left: 0rem;
     color: black;
 }
+.search_index{
+    margin-left: 20%; 
+}
 .label_btn{
     height: 2rem;
     color: white;
@@ -74,7 +77,7 @@ font-size: 1rem;
     color: white;
 }
 .show_btn{
-    width: 30%;
+    width: 80%;
     padding: 0.5rem;
     border-radius: 5px;
     margin: 1rem;
