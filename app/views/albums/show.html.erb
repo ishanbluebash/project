@@ -1,18 +1,17 @@
-<div class="card mb-3 mt-3 bg-dark show_card container-fluid" style="max-width: 540px;">
+<div class="card mb-3 mt-3 bg-dark show_card container-fluid" style="max-width: 540px; @media only screen and (max-width: 768px) { width: 100%; }">
   <div class="row g-0">
     <div class="col">
+
      <%if @album.image.attached?%>
        <%= image_tag url_for(@album.image) , style: "height:100%; width:100%;" %>
        <%end%>
+        
     </div>
     <div class="col">
       <div class="card-body show_text">
         <h1 class="card-title"><%= @album.title %></h1>
         <p class="card-text"><%= @album.body %></p>
-        <p class="card-text"><%= @album.published%></p>
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        <button type="button" class="btn btn-danger btn-sm show_btn">Play Now</button>
-        <button type="button" class="btn btn-primary btn-sm show_btn">Follow Artist</button>
 
       </div>
     </div>
@@ -44,12 +43,12 @@
     <% end %>
   </tbody>
 </table>
-<div style="margin-left:20%">
-<button type="button" class="btn btn-danger show_btn"><%= link_to "Destroy Entire Album " , album_path(@album), data: {
+<div style="margin-left:23%;">
+<button type="button" class="btn btn-danger show_btn"><%= link_to "Destroy" , album_path(@album), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   },class:"text-light text-decoration-none" %></button>
-<button type="button" class="btn btn-success show_btn"><%= link_to "Edit Entire Album", edit_album_path(@album),class:"text-light text-decoration-none" %></button></td>
+<button type="button" class="btn btn-success show_btn"><%= link_to "Edit", edit_album_path(@album),class:"text-light text-decoration-none" %></button></td>
 </div>
 </div>
 
