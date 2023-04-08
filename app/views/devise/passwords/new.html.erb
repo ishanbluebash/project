@@ -1,22 +1,22 @@
 <h2 class = "index_head">Forgot your password?</h2>
 <div class="row row-cols-1 row-cols-md-2 g-4 container-fluid">
 <div class="col">
-    <div class="card ms-5 mt-5 h-75 w-75" style="border:none;">
+    <div class="card ms-2 mt-5 h-75 w-100" style="border:none;">
     <%=image_tag "logos/forgot.avif", alt: 'My Image', style:"height:100%;width:100%"%>
     </div>
   </div>
   <div class="col">
-    <div class="card ms-5 mt-2" style="border:none;background-color:black;">
+    <div class="card ms-2 mt-2" style="border:none;background-color:black;">
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :email ,class:"label_form"%><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"label_input"%>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"label_input w-100"%>
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me instructions" ,class:"btn btn-danger label_input",style:"margin-top:2rem;"%>
+    <%= f.submit "Send me instructions" ,class:"btn btn-danger label_input mt-3 w-100"%>
   </div>
   <%= render "devise/shared/links" %>
 <% end %>

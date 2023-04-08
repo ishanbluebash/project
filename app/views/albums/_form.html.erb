@@ -1,15 +1,15 @@
 <div class="row row-cols-1 row-cols-md-2 g-4 container-fluid">
   <div class="col">
-    <div class="card ms-5 mt-5 h-75 w-75" style="border:none;">
+    <div class="card ms-2 mt-5 h-75 w-100" style="border:none;">
     <%=image_tag "logos/wall.jpg", alt: 'My Image', style:"height:100%;width:100%"%>
     </div>
   </div>
   <div class="col">
-  <div class="card ms-3 mt-3" style="border:none;background-color:black;">
+  <div class="card ms-2 mt-2" style="border:none;background-color:black;">
       <%= form_with(model: @album, local:true) do |form|%>
         <div>
           <%= form.label :Artist ,class:"label_form"%><br>
-          <%= form.text_field :title ,class:"label_input"%>
+          <%= form.text_field :title ,class:"label_input w-100"%>
           <% album.errors.full_messages_for(:title).each do |message| %>
             <div><%= message %></div>
           <% end %>
@@ -17,7 +17,7 @@
 
         <div>
           <%= form.label :Description ,class:"label_form"%><br>
-          <%= form.text_area :body ,class:"label_input"%><br>
+          <%= form.text_area :body ,class:"label_input w-100"%><br>
           <% album.errors.full_messages_for(:body).each do |message| %>
             <div><%= message %></div>
           <% end %>
@@ -43,7 +43,7 @@
             </div>
       
         <div>
-          <%= form.submit "Save",class:"btn btn-danger show_btn" %>
+          <%= form.submit "Save",class:"btn btn-danger label_input w-100 mt-3" %>
         </div>
         
    <% end %>

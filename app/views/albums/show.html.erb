@@ -43,7 +43,7 @@
     <% end %>
   </tbody>
 </table>
-<div style="margin-left:20%;">
+<div style="text-align:center;">
 <button type="button" class="btn btn-danger show_btn"><%= link_to "Destroy" , album_path(@album), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
@@ -52,4 +52,4 @@
 </div>
 </div>
 
-<small>Tags: <%= raw @album.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small></p>
+<small>Tags: <%= raw @album.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small>
