@@ -39,7 +39,7 @@
         </div><br>
         <div class= "form-group ">
             <%= form.label :tag_ids, 'Tags'%>
-            <%= form.select :tag_ids, options_from_collection_for_select(Tag.order(:name), :id, :name, form.object.tag_ids), { multiple: true }, class:"bg-dark" %>
+            <%= form.select :tag_ids, options_from_collection_for_select(Tag.order(:name), :id, :name, form.object.tag_ids),{include_blank: false }, { multiple: true , class:"bg-dark"} %>
             </div>
       
         <div>
