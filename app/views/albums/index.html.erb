@@ -1,34 +1,29 @@
 <div style="text-align:center;">
-<%= search_form_for @q, remote: true do |f| %>
-  <%= f.label :title_cont, 'Search By Album Name', class:"label_form" %>
-  <%= f.search_field :title_cont ,style:"height: 2.8rem;margin-left: 0rem;color:black;"%>
-  <%= f.submit :Submit, style:"color:black;",class:"btn btn-danger mt-1" %>
-<% end %>
+  <%= search_form_for @q, remote: true do |f| %>
+    <%= f.label :title_cont, 'Search By Album Name', class:"label_form" %>
+    <%= f.search_field :title_cont ,style:"height: 2.8rem;margin-left: 0rem;color:black;"%>
+    <%= f.submit :Submit, style:"color:black;",class:"btn btn-danger mt-1" %>
+  <% end %>
 </div>
 <h1 class = "index_head">Our Published Albums</h1>
 <hr style="color:white;">
 <h4 class="index_sub">Punjabi Singers...<h4>
 <div class="row container-fluid">
   <% @albums.each do |album| %>
-  <div class="col-xxl-2 col-lg-4 col-md-6 col-sm-12 mt-2">
-    <div class="card index_card h-100 w-100">
-    <%if album.image.attached?%>
-       <%= image_tag url_for(album.image) , style: "width:100%;height:100%;" %>
-       <%end%>
-      <div class="card-img-overlay">
-        <h5 class="card-title"><%= link_to album.title, album, class:"card_title"%></h5>
+    <div class="col-xxl-2 col-lg-4 col-md-6 col-sm-12 mt-2">
+      <div class="card index_card h-100 w-100">
+        <%if album.image.attached?%>
+        <%= image_tag url_for(album.image) , style: "width:100%;height:100%;" %>
+        <%end%>
+        <div class="card-img-overlay">
+          <h5 class="card-title"><%= link_to album.title, album, class:"card_title"%></h5>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 </div>
-
 <br><br><br>
-
 Tags:
   <% @albums.each do |album| %>
   <small> <%= raw album.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small>
   <% end %>
-
-
-

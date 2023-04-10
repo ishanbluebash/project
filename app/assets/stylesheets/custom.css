@@ -92,9 +92,6 @@ font-size: 1rem;
 .btn_form{
     background-color: orange;
 }
-
-
-
 @media screen and (max-width: 790px) {
 
     .search_nav{

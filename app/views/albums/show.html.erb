@@ -1,18 +1,15 @@
 <div class="card mb-3 mt-3 bg-dark show_card container-fluid" style="max-width: 540px; @media only screen and (max-width: 768px) { width: 100%; }">
   <div class="row g-0">
     <div class="col">
-
      <%if @album.image.attached?%>
        <%= image_tag url_for(@album.image) , style: "height:100%; width:100%;" %>
-       <%end%>
-        
+      <%end%>
     </div>
     <div class="col">
       <div class="card-body show_text">
         <h1 class="card-title"><%= @album.title %></h1>
         <p class="card-text"><%= @album.body %></p>
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-
       </div>
     </div>
   </div>
@@ -21,35 +18,34 @@
 
 <div class="card bg-dark text-white container-fluid">
   <table class="table container-fluid">
-  <thead>
-    <tr class="row_show">
-      <th scope="col">Artist</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @album.audios.each do |audio| %>
-    <tr class="row_show">
-      <td><%= @album.title %><br>
-      <audio class="audio_show" controls>
-    <source src="<%= url_for(audio)%>" type="<%= audio.content_type %>">
-  </audio> <br>
-  <%= @album.published ? 'Published : Yes' : 'Published : No' %><br>
-  <button type="button" class="btn btn-danger  show_btn"><%= link_to 'Remove', purge_audio_album_path(@album, audio_id: audio.id), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } ,class:"text-light text-decoration-none"%></button>
-  </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<div style="text-align:center;">
-<button type="button" class="btn btn-danger show_btn"><%= link_to "Destroy" , album_path(@album), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  },class:"text-light text-decoration-none" %></button>
-<button type="button" class="btn btn-success show_btn"><%= link_to "Edit", edit_album_path(@album),class:"text-light text-decoration-none" %></button></td>
+    <thead>
+      <tr class="row_show">
+        <th scope="col">Artist</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @album.audios.each do |audio| %>
+        <tr class="row_show">
+          <td><%= @album.title %><br>
+          <audio class="audio_show" controls>
+          <source src="<%= url_for(audio)%>" type="<%= audio.content_type %>">
+          </audio> <br>
+          <%= @album.published ? 'Published : Yes' : 'Published : No' %><br>
+          <button type="button" class="btn btn-danger  show_btn"><%= link_to 'Remove', purge_audio_album_path(@album, audio_id: audio.id), data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?"
+                      } ,class:"text-light text-decoration-none"%></button>
+            </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div style="text-align:center;">
+    <button type="button" class="btn btn-danger show_btn"><%= link_to "Destroy" , album_path(@album), data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?"
+                      },class:"text-light text-decoration-none" %></button>
+    <button type="button" class="btn btn-success show_btn"><%= link_to "Edit", edit_album_path(@album),class:"text-light text-decoration-none" %></button></td>
+  </div>
 </div>
-</div>
-
 <small>Tags: <%= raw @album.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></small>

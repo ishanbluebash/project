@@ -1,11 +1,11 @@
 <div class="row row-cols-1 row-cols-md-2 g-4 container-fluid">
   <div class="col">
     <div class="card ms-2 mt-5 h-75 w-100" style="border:none;">
-    <%=image_tag "logos/wall.jpg", alt: 'My Image', style:"height:100%;width:100%"%>
+       <%=image_tag "logos/wall.jpg", alt: 'My Image', style:"height:100%;width:100%"%>
     </div>
   </div>
   <div class="col">
-  <div class="card ms-2 mt-2" style="border:none;background-color:black;">
+    <div class="card ms-2 mt-2" style="border:none;background-color:black;">
       <%= form_with(model: @album, local:true) do |form|%>
         <div>
           <%= form.label :Artist ,class:"label_form"%><br>
@@ -46,10 +46,10 @@
           <%= form.submit "Save",class:"btn btn-danger label_input w-100 mt-3" %>
         </div>
         
-   <% end %>
-     </div>
+      <% end %>
     </div>
   </div>
+</div>
 
 
 
